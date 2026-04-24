@@ -1,375 +1,546 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANDESIGN – Thiết kế Print-on-Demand chuyên nghiệp</title>
-  <meta name="description" content="Công ty TNHH ANDESIGN – Chuyên thiết kế hình ảnh in ấn áo thun, mũ, cốc, sách vở trên Amazon và các sàn thương mại điện tử quốc tế." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AN.DESIGN — Amazon Merch On Demand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    :root {
-      --primary: #1a1a1a;
-      --accent:  #F0A500;
-      --accent2: #C88000;
-      --light:   #FFFDF5;
-      --mid:     #F5EDCC;
-      --text:    #1a1a1a;
-      --muted:   #6b7280;
-      --white:   #ffffff;
-      --radius:  12px;
-      --shadow:  0 4px 24px rgba(0,0,0,.08);
-    }
+<style>
+  :root {
+    --yellow: #E8A020;
+    --yellow-light: #F2B84B;
+    --yellow-dark: #C4851A;
+    --bg: #0D0B08;
+    --bg2: #141209;
+    --bg3: #1C1810;
+    --white: #F8F5EE;
+    --gray: #8A8070;
+    --gray2: #2A2520;
+  }
 
-    html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
-    }
+  html { scroll-behavior: smooth; }
 
-    /* ── NAVBAR ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%;
-      height: 68px;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--mid);
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: .55rem;
-      text-decoration: none;
-    }
-    .nav-logo-icon {
-      width: 38px; height: 38px; border-radius: 8px;
-      background: var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .85rem; font-weight: 900; color: var(--primary);
-      letter-spacing: -1px; flex-shrink: 0;
-    }
-    .nav-logo-text {
-      font-size: 1.2rem; font-weight: 800; letter-spacing: .5px;
-      color: var(--primary);
-    }
-    .nav-logo-text span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--text);
-      font-size: .93rem; font-weight: 500;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-cta {
-      background: var(--accent); color: var(--primary) !important;
-      padding: .45rem 1.1rem; border-radius: 6px;
-    }
-    .nav-cta:hover { background: var(--accent2) !important; color: var(--white) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    overflow-x: hidden;
+  }
 
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2000 60%, #1a1200 100%);
-      padding: 100px 5% 60px;
-      position: relative; overflow: hidden;
-    }
-    #hero::after {
-      content: '';
-      position: absolute; bottom: -2px; left: 0; right: 0; height: 80px;
-      background: var(--white);
-      clip-path: ellipse(55% 100% at 50% 100%);
-    }
-    .hero-inner { max-width: 760px; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(240,165,0,.18);
-      color: #F0A500;
-      font-size: .8rem; font-weight: 600; letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: .35rem .9rem; border-radius: 20px;
-      margin-bottom: 1.4rem;
-    }
-    .hero-inner h1 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 800; line-height: 1.18;
-      color: var(--white); margin-bottom: 1.2rem;
-    }
-    .hero-inner h1 em { color: #F0A500; font-style: normal; text-shadow: 0 0 40px rgba(240,165,0,.35); }
-    .hero-inner p {
-      font-size: 1.1rem; color: rgba(255,255,255,.78);
-      max-width: 560px; margin-bottom: 2.2rem;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent); color: var(--white);
-      padding: .75rem 1.8rem; border-radius: 8px;
-      font-weight: 600; text-decoration: none; font-size: .97rem;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(240,165,0,.4); }
-    .btn-outline {
-      border: 2px solid rgba(255,255,255,.4); color: var(--white);
-      padding: .75rem 1.8rem; border-radius: 8px;
-      font-weight: 600; text-decoration: none; font-size: .97rem;
-      transition: background .2s, border-color .2s;
-    }
-    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px;
+    height: 72px;
+    background: rgba(13,11,8,0);
+    backdrop-filter: blur(0px);
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(13,11,8,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(232,160,32,0.15);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo img { height: 40px; width: 40px; object-fit: cover; border-radius: 6px; }
+  .nav-logo span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; letter-spacing: 2px;
+    color: var(--yellow);
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    text-decoration: none; font-size: 13px; font-weight: 500;
+    color: var(--white); letter-spacing: 1px; text-transform: uppercase;
+    opacity: 0.7; transition: opacity 0.2s, color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1.5px; background: var(--yellow);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.25s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--yellow); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: var(--yellow); color: #0D0B08 !important;
+    padding: 10px 24px; border-radius: 4px; font-weight: 700 !important;
+    opacity: 1 !important; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--yellow-light) !important; }
+  .nav-cta::after { display: none !important; }
 
-    /* ── SECTION BASE ── */
-    section { padding: 90px 5%; }
-    .section-tag {
-      display: inline-block;
-      font-size: .78rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: .6rem;
-    }
-    h2.section-title {
-      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-      font-weight: 800; line-height: 1.25;
-      color: var(--primary); margin-bottom: 1rem;
-    }
-    .section-sub {
-      font-size: 1.05rem; color: var(--muted);
-      max-width: 560px; margin-bottom: 3rem;
-    }
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 120px 60px 80px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(232,160,32,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 79px, var(--yellow) 79px, var(--yellow) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, var(--yellow) 79px, var(--yellow) 80px);
+  }
+  .hero-content { position: relative; max-width: 760px; }
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--yellow); margin-bottom: 28px;
+  }
+  .hero-label::before {
+    content: ''; display: block; width: 32px; height: 1.5px; background: var(--yellow);
+  }
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(72px, 10vw, 140px);
+    line-height: 0.92;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+  .hero-title span { color: var(--yellow); }
+  .hero-desc {
+    font-size: 17px; line-height: 1.75; color: rgba(248,245,238,0.65);
+    max-width: 520px; margin-bottom: 48px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--yellow); color: #0D0B08;
+    padding: 16px 36px; font-size: 14px; font-weight: 700;
+    text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px;
+    border-radius: 4px; transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--yellow-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1.5px solid rgba(248,245,238,0.25); color: var(--white);
+    padding: 16px 36px; font-size: 14px; font-weight: 600;
+    text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px;
+    border-radius: 4px; transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
 
-    /* ── ABOUT ── */
-    #about { background: var(--white); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-    }
-    .about-visual {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    }
-    .about-card {
-      background: var(--light); border-radius: var(--radius);
-      padding: 1.6rem 1.4rem; text-align: center;
-    }
-    .about-card .num {
-      font-size: 2.2rem; font-weight: 800; color: var(--accent);
-    }
-    .about-card .lbl { font-size: .85rem; color: var(--muted); margin-top: .3rem; }
-    .about-card:first-child { grid-column: span 2; background: var(--accent); }
-    .about-card:first-child .num, .about-card:first-child .lbl { color: var(--primary); }
-    .values { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
-    .values li { display: flex; align-items: flex-start; gap: .75rem; font-size: .97rem; }
-    .values li::before { content: '✦'; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+  .hero-stats {
+    position: absolute; right: 60px; bottom: 80px;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .stat-item { text-align: right; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 48px;
+    color: var(--yellow); line-height: 1;
+  }
+  .stat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
 
-    /* ── SERVICES ── */
-    #services { background: var(--light); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .service-card {
-      background: var(--white); border-radius: var(--radius);
-      padding: 2rem 1.6rem;
-      box-shadow: var(--shadow);
-      transition: transform .25s, box-shadow .25s;
-    }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,.12); }
-    .service-icon {
-      width: 52px; height: 52px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 1.1rem;
-      background: rgba(240,165,0,.15);
-    }
-    .service-card h3 { font-size: 1.07rem; font-weight: 700; margin-bottom: .5rem; color: var(--primary); }
-    .service-card p { font-size: .9rem; color: var(--muted); }
+  /* ── SECTIONS COMMON ── */
+  section { padding: 100px 60px; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--yellow); margin-bottom: 16px;
+  }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--yellow); }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1; letter-spacing: 1px;
+    color: var(--white); margin-bottom: 24px;
+  }
+  .section-title span { color: var(--yellow); }
 
-    /* ── ACTIVITIES ── */
-    #activities { background: var(--white); }
-    .activities-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .activity-card {
-      border-radius: var(--radius); overflow: hidden;
-      box-shadow: var(--shadow); background: var(--white);
-      transition: transform .25s;
-    }
-    .activity-card:hover { transform: translateY(-4px); }
-    .activity-img {
-      height: 200px; display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem;
-    }
-    .activity-img.c1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    .activity-img.c2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-    .activity-img.c3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-    .activity-img.c4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-    .activity-body { padding: 1.3rem 1.4rem; }
-    .activity-body .tag {
-      font-size: .75rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 1px; color: var(--accent); margin-bottom: .4rem;
-    }
-    .activity-body h3 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: .4rem; }
-    .activity-body p { font-size: .88rem; color: var(--muted); }
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .about-text p {
+    font-size: 16px; line-height: 1.85; color: rgba(248,245,238,0.65);
+    margin-bottom: 20px;
+  }
+  .about-text p strong { color: var(--yellow); font-weight: 700; }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-box {
+    width: 100%; aspect-ratio: 4/3;
+    background: var(--bg3);
+    border: 1px solid var(--gray2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .about-img-box::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(232,160,32,0.08) 0%, transparent 60%);
+  }
+  .placeholder-text {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gray); text-align: center; font-family: monospace; line-height: 1.8;
+  }
+  .about-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--yellow); color: #0D0B08;
+    width: 120px; height: 120px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .about-badge .big { font-size: 42px; line-height: 1; }
+  .about-badge .small { font-size: 11px; letter-spacing: 1px; text-align: center; font-family: 'Be Vietnam Pro', sans-serif; font-weight: 700; }
 
-    /* ── RECRUITMENT ── */
-    #recruitment { background: var(--light); }
-    .jobs-list { display: flex; flex-direction: column; gap: 1rem; }
-    .job-card {
-      background: var(--white); border-radius: var(--radius);
-      padding: 1.6rem 1.8rem;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; box-shadow: var(--shadow);
-      transition: box-shadow .2s;
-    }
-    .job-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.13); }
-    .job-info h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: .35rem; }
-    .job-tags { display: flex; gap: .5rem; flex-wrap: wrap; }
-    .job-tag {
-      font-size: .76rem; font-weight: 600;
-      padding: .25rem .75rem; border-radius: 20px;
-    }
-    .job-tag.type { background: rgba(240,165,0,.15); color: #8a6000; }
-    .job-tag.loc  { background: rgba(26,26,26,.07);  color: var(--primary); }
-    .btn-apply {
-      flex-shrink: 0;
-      background: var(--primary); color: var(--white);
-      padding: .55rem 1.3rem; border-radius: 7px;
-      font-size: .88rem; font-weight: 600;
-      text-decoration: none; transition: background .2s;
-      white-space: nowrap;
-    }
-    .btn-apply:hover { background: var(--accent); }
+  /* ── SERVICES ── */
+  #services { background: var(--bg); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 60px; max-width: 1200px;
+  }
+  .service-card {
+    background: var(--bg3); padding: 48px 36px;
+    border: 1px solid var(--gray2);
+    position: relative; overflow: hidden;
+    transition: background 0.3s; cursor: default;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--yellow);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
+  }
+  .service-card:hover { background: #211d14; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 64px;
+    color: rgba(232,160,32,0.12); line-height: 1; margin-bottom: 16px;
+    transition: color 0.3s;
+  }
+  .service-card:hover .service-num { color: rgba(232,160,32,0.25); }
+  .service-name {
+    font-size: 20px; font-weight: 700; color: var(--white);
+    margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .service-desc { font-size: 14px; line-height: 1.75; color: rgba(248,245,238,0.55); }
 
-    /* ── CONTACT ── */
-    #contact { background: #1a1a1a; color: var(--white); }
-    #contact .section-tag { color: #F0A500; }
-    #contact h2.section-title { color: var(--white); }
-    #contact .section-sub { color: rgba(255,255,255,.65); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .contact-info { display: flex; flex-direction: column; gap: 1.6rem; }
-    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
-    .contact-icon {
-      width: 46px; height: 46px; border-radius: 10px;
-      background: rgba(255,255,255,.1);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
-    }
-    .contact-text span { display: block; font-size: .8rem; color: rgba(255,255,255,.5); margin-bottom: .2rem; }
-    .contact-text strong { font-size: .98rem; color: var(--white); }
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-form input,
-    .contact-form textarea {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      color: var(--white); border-radius: 8px;
-      padding: .8rem 1rem; font-size: .95rem; font-family: inherit;
-      outline: none; transition: border-color .2s;
-    }
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder { color: rgba(255,255,255,.35); }
-    .contact-form input:focus,
-    .contact-form textarea:focus { border-color: var(--accent); }
-    .contact-form textarea { resize: vertical; min-height: 120px; }
-    .contact-form button {
-      background: var(--accent); color: var(--primary);
-      border: none; border-radius: 8px;
-      padding: .8rem; font-size: 1rem; font-weight: 700;
-      cursor: pointer; transition: background .2s;
-    }
-    .contact-form button:hover { background: var(--accent2); color: var(--white); }
+  /* ── GALLERY ── */
+  #gallery { background: var(--bg2); }
+  .gallery-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 48px; flex-wrap: wrap; gap: 24px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 220px);
+    gap: 12px;
+    max-width: 1200px;
+  }
+  .gallery-item {
+    background: var(--bg3); border-radius: 6px;
+    border: 1px solid var(--gray2); overflow: hidden;
+    position: relative; cursor: pointer;
+    transition: transform 0.25s;
+  }
+  .gallery-item:hover { transform: scale(1.02); z-index: 2; }
+  .gallery-item.big { grid-column: span 2; grid-row: span 2; }
+  .gallery-item.tall { grid-row: span 2; }
+  .gallery-item-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .gallery-overlay {
+    position: absolute; inset: 0; background: rgba(232,160,32,0);
+    display: flex; align-items: flex-end; padding: 20px;
+    transition: background 0.3s;
+  }
+  .gallery-item:hover .gallery-overlay { background: rgba(232,160,32,0.12); }
+  .gallery-tag {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+    color: var(--yellow); opacity: 0; transform: translateY(8px);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .gallery-item:hover .gallery-tag { opacity: 1; transform: translateY(0); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #0d0d1a; color: rgba(255,255,255,.45);
-      text-align: center; padding: 1.8rem 5%;
-      font-size: .86rem;
-    }
-    footer a { color: var(--accent); text-decoration: none; }
+  /* ── TEAM ── */
+  #team { background: var(--bg); }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    margin-top: 60px; max-width: 1200px;
+  }
+  .team-card {
+    background: var(--bg3); border: 1px solid var(--gray2); border-radius: 8px;
+    overflow: hidden; transition: border-color 0.25s;
+  }
+  .team-card:hover { border-color: var(--yellow); }
+  .team-photo {
+    width: 100%; aspect-ratio: 1; background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .team-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(13,11,8,0.8));
+  }
+  .team-initials {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 56px;
+    color: rgba(232,160,32,0.3);
+  }
+  .team-info { padding: 20px; }
+  .team-name { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .team-role {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--yellow); font-weight: 600;
+  }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 820px) {
-      .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .about-visual { order: -1; }
-      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0;
-        background: var(--white); flex-direction: column; padding: 1rem 5% 1.5rem;
-        border-bottom: 1px solid var(--mid); gap: 1.2rem; }
-      .nav-links.open { display: flex; }
-      .hamburger { display: flex; }
-    }
-    @media (max-width: 540px) {
-      .job-card { flex-direction: column; align-items: flex-start; }
-      .hero-btns { flex-direction: column; }
-    }
-  </style>
+  /* ── CAREERS ── */
+  #careers { background: var(--bg2); }
+  .careers-intro {
+    max-width: 600px; font-size: 16px; line-height: 1.8;
+    color: rgba(248,245,238,0.6); margin-bottom: 60px;
+  }
+  .jobs-list { display: flex; flex-direction: column; gap: 16px; max-width: 900px; }
+  .job-card {
+    background: var(--bg3); border: 1px solid var(--gray2); border-radius: 8px;
+    padding: 32px 40px; display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
+    transition: border-color 0.25s, background 0.25s; cursor: pointer;
+    position: relative; overflow: hidden;
+  }
+  .job-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--yellow); transform: scaleY(0); transform-origin: top;
+    transition: transform 0.3s;
+  }
+  .job-card:hover { border-color: rgba(232,160,32,0.4); background: #1a160f; }
+  .job-card:hover::before { transform: scaleY(1); }
+  .job-info {}
+  .job-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 32px;
+    letter-spacing: 1px; color: var(--white); margin-bottom: 8px;
+  }
+  .job-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .job-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 2px;
+    background: rgba(232,160,32,0.1); color: var(--yellow);
+    border: 1px solid rgba(232,160,32,0.2);
+  }
+  .job-apply {
+    flex-shrink: 0; background: transparent; border: 1.5px solid rgba(248,245,238,0.2);
+    color: var(--white); padding: 12px 28px; border-radius: 4px;
+    font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+  }
+  .job-card:hover .job-apply {
+    background: var(--yellow); border-color: var(--yellow); color: #0D0B08;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px); z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--bg2); border: 1px solid rgba(232,160,32,0.2);
+    border-radius: 12px; padding: 48px; max-width: 560px; width: 90%;
+    transform: translateY(20px); transition: transform 0.3s;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 40px;
+    color: var(--yellow); letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .modal p { font-size: 14px; color: rgba(248,245,238,0.6); margin-bottom: 28px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+  .form-group input, .form-group textarea {
+    width: 100%; background: var(--bg3); border: 1px solid var(--gray2);
+    border-radius: 4px; padding: 12px 16px; color: var(--white);
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px;
+    outline: none; transition: border-color 0.2s;
+  }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--yellow); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .modal-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 28px; }
+  .btn-cancel {
+    padding: 12px 24px; font-size: 14px; font-weight: 600;
+    background: transparent; border: 1.5px solid var(--gray2);
+    color: var(--gray); border-radius: 4px; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-cancel:hover { border-color: var(--white); color: var(--white); }
+  .btn-submit {
+    padding: 12px 28px; font-size: 14px; font-weight: 700;
+    background: var(--yellow); color: #0D0B08; border: none;
+    border-radius: 4px; cursor: pointer; transition: background 0.2s; letter-spacing: 0.5px;
+  }
+  .btn-submit:hover { background: var(--yellow-light); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--bg); }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    max-width: 1200px; align-items: start;
+  }
+  .contact-left .section-title { margin-bottom: 16px; }
+  .contact-left p { font-size: 16px; line-height: 1.8; color: rgba(248,245,238,0.55); margin-bottom: 48px; }
+  .contact-items { display: flex; flex-direction: column; gap: 28px; }
+  .contact-item { display: flex; gap: 20px; align-items: flex-start; }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 6px;
+    background: rgba(232,160,32,0.12); border: 1px solid rgba(232,160,32,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 18px;
+  }
+  .contact-detail h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+  .contact-detail p { font-size: 15px; color: var(--white); margin: 0; }
+
+  .contact-form { background: var(--bg3); border: 1px solid var(--gray2); border-radius: 12px; padding: 40px; }
+  .contact-form h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--white); margin-bottom: 28px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--gray2);
+    padding: 48px 60px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 12px; }
+  .footer-logo img { height: 36px; width: 36px; object-fit: cover; border-radius: 4px; }
+  .footer-logo span { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--yellow); }
+  footer p { font-size: 13px; color: var(--gray); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--yellow); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── DIVIDER ── */
+  .yellow-line { width: 64px; height: 3px; background: var(--yellow); margin-bottom: 48px; }
+
+  /* ── SUCCESS STATE ── */
+  .success-msg {
+    display: none; text-align: center; padding: 20px 0;
+  }
+  .success-msg svg { margin-bottom: 12px; }
+  .success-msg h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; color: var(--yellow); }
+  .success-msg p { color: var(--gray); font-size: 14px; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    #hero { padding: 100px 24px 60px; }
+    .hero-stats { display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .gallery-item.big { grid-column: span 2; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav id="navbar">
+<!-- NAV -->
+<nav id="mainNav">
   <a href="#hero" class="nav-logo">
-    <div class="nav-logo-icon">AN</div>
-    <span class="nav-logo-text">AN<span>DESIGN</span></span>
+    <img src="uploads/LOGO AN.DESIGN VANG.png" alt="AN.DESIGN Logo">
+    <span>AN.DESIGN</span>
   </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">Về chúng tôi</a></li>
-    <li><a href="#services">Dịch vụ</a></li>
-    <li><a href="#activities">Hoạt động</a></li>
-    <li><a href="#recruitment">Tuyển dụng</a></li>
-    <li><a href="#contact" class="nav-cta">Liên hệ</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="nav-links">
+    <a href="#about">Về chúng tôi</a>
+    <a href="#services">Dịch vụ</a>
+    <a href="#gallery">Hoạt động</a>
+    <a href="#team">Đội ngũ</a>
+    <a href="#careers">Tuyển dụng</a>
+    <a href="#contact" class="nav-cta">Liên hệ</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-inner">
-    <span class="hero-badge">Công ty TNHH ANDESIGN</span>
-    <h1>Sáng tạo không giới hạn —<br><em>In ấn vươn tầm thế giới</em></h1>
-    <p>Chúng tôi thiết kế hình ảnh in ấn chuyên nghiệp cho áo thun, mũ, cốc, sách vở… bán trên Amazon và các sàn thương mại điện tử quốc tế.</p>
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-label">CÔNG TY TNHH ANDESIGN</div>
+    <h1 class="hero-title" style="font-size:180px">
+      DESIGN.<br>
+      <span>WITHOUT.</span><br>
+      BORDERS.
+    </h1>
+    <p class="hero-desc">
+      AN.DESIGN chuyên thiết kế các sản phẩm in ấn chất lượng cao và phân phối trực tiếp qua nền tảng Amazon, Etsy... — đưa sáng tạo Việt Nam ra thị trường quốc tế.
+    </p>
     <div class="hero-btns">
       <a href="#services" class="btn-primary">Khám phá dịch vụ</a>
-      <a href="#contact" class="btn-outline">Liên hệ ngay</a>
+      <a href="#careers" class="btn-outline">Gia nhập đội ngũ</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">9000+</div>
+      <div class="stat-label">Sản phẩm thiết kế</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">7+</div>
+      <div class="stat-label">Năm kinh nghiệm</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">9+</div>
+      <div class="stat-label">Nhân sự</div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="about-grid">
-    <div>
-      <span class="section-tag">Về chúng tôi</span>
-      <h2 class="section-title">Đội ngũ sáng tạo,<br>Sản phẩm toàn cầu</h2>
-      <p style="color:var(--muted); margin-bottom:1.2rem;">Công ty TNHH ANDESIGN được thành lập với sứ mệnh mang những thiết kế độc đáo của người Việt ra thị trường quốc tế thông qua mô hình Print-on-Demand (POD) trên Amazon, Etsy, Redbubble và nhiều sàn TMĐT lớn khác.</p>
-      <ul class="values">
-        <li>Thiết kế bản quyền 100%, không vi phạm trademark</li>
-        <li>Nghiên cứu xu hướng thị trường Mỹ, EU liên tục</li>
-        <li>Quy trình tối ưu — từ ý tưởng đến sản phẩm live nhanh nhất</li>
-        <li>Đội ngũ designer trẻ, sáng tạo, nhiệt huyết</li>
-      </ul>
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <div class="section-label">Về chúng tôi</div>
+      <h2 class="section-title">CHÚNG TÔI LÀ <span>AI?</span></h2>
+      <div class="yellow-line"></div>
+      <p>
+        <strong>AN.DESIGN</strong> là đội ngũ những người đam mê sáng tạo, chuyên xây dựng và phát triển các sản phẩm thiết kế in ấn (Print-on-Demand) trên các nền tảng <strong>Thương mại điện tử</strong>.
+      </p>
+      <p>
+        Từ những chiếc áo phông, hoodie đến poster và phụ kiện — mỗi sản phẩm đều được nghiên cứu thị trường kỹ lưỡng, thiết kế sắc sảo và tối ưu hóa để tiếp cận hàng triệu khách hàng trên toàn thế giới.
+      </p>
+      <p>
+        Chúng tôi tin rằng <strong>sáng tạo không có giới hạn</strong>, và mỗi thiết kế là một cơ hội để kể một câu chuyện độc đáo — vượt qua biên giới, ngôn ngữ và văn hóa.
+      </p>
     </div>
-    <div class="about-visual">
-      <div class="about-card">
-        <div class="num">500+</div>
-        <div class="lbl">Thiết kế đang active trên các sàn</div>
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-img-box">
+        <img src="uploads/619992931_122137542134985097_312204101638318476_n.jpg" alt="Team AN.DESIGN" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
       </div>
-      <div class="about-card">
-        <div class="num">5+</div>
-        <div class="lbl">Năm kinh nghiệm POD</div>
-      </div>
-      <div class="about-card">
-        <div class="num">10+</div>
-        <div class="lbl">Thành viên sáng tạo</div>
-      </div>
-      <div class="about-card">
-        <div class="num">Amazon</div>
-        <div class="lbl">& các sàn quốc tế lớn</div>
+      <div class="about-badge">
+        <div class="big">7+</div>
+        <div class="small">NĂM<br>KINH NGHIỆM</div>
       </div>
     </div>
   </div>
@@ -377,224 +548,452 @@
 
 <!-- SERVICES -->
 <section id="services">
-  <span class="section-tag">Dịch vụ</span>
-  <h2 class="section-title">Chúng tôi làm gì?</h2>
-  <p class="section-sub">Từ ý tưởng đến sản phẩm thực tế — chúng tôi lo toàn bộ khâu thiết kế để bạn tập trung bán hàng.</p>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">👕</div>
-      <h3>Thiết kế áo thun</h3>
-      <p>Graphic tee, quote shirt, niche design — tối ưu cho Merch by Amazon, Printful, Printify.</p>
+  <div class="section-label reveal">Dịch vụ</div>
+  <h2 class="section-title reveal">NHỮNG GÌ<br>CHÚNG TÔI <span>LÀM</span></h2>
+  <div class="services-grid" style="grid-template-columns: repeat(3,1fr);">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-name">Nghiên cứu & Chiến lược</div>
+      <div class="service-desc">Phân tích thị trường, tìm niche và định hướng sản phẩm phù hợp để tối đa cơ hội bán hàng.</div>
     </div>
-    <div class="service-card">
-      <div class="service-icon">🧢</div>
-      <h3>Thiết kế mũ & phụ kiện</h3>
-      <p>Logo hat, trucker cap, beanie — file đúng kích thước yêu cầu của từng nhà in.</p>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <div class="service-name">Thiết kế & Triển khai</div>
+      <div class="service-desc">Tạo sản phẩm, tối ưu listing và đưa lên thị trường một cách hiệu quả.</div>
     </div>
-    <div class="service-card">
-      <div class="service-icon">☕</div>
-      <h3>Thiết kế cốc & ly</h3>
-      <p>Mug wrap, travel tumbler, sublimation — thiết kế full-wrap chuyên nghiệp.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📓</div>
-      <h3>Thiết kế sách & văn phòng phẩm</h3>
-      <p>Journal, notebook cover, planner — KDP Low Content Book và POD stationery.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔍</div>
-      <h3>Nghiên cứu thị trường</h3>
-      <p>Phân tích niche, trend, keyword — tìm ngách tiềm năng trước khi thiết kế.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🌐</div>
-      <h3>Upload & Tối ưu listing</h3>
-      <p>Hỗ trợ đăng sản phẩm, viết title/bullet/description SEO-chuẩn cho Amazon.</p>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <div class="service-name">Vận hành & Tăng trưởng</div>
+      <div class="service-desc">Quản lý tài khoản, theo dõi hiệu suất và scale doanh thu bằng dữ liệu và quảng cáo.</div>
     </div>
   </div>
 </section>
 
-<!-- ACTIVITIES -->
-<section id="activities">
-  <span class="section-tag">Hoạt động</span>
-  <h2 class="section-title">Đời sống ANDESIGN</h2>
-  <p class="section-sub">Góc nhìn bên trong về đội ngũ, văn hóa làm việc và những khoảnh khắc đáng nhớ.</p>
-  <div class="activities-grid">
-    <div class="activity-card">
-      <div class="activity-img c1">🎨</div>
-      <div class="activity-body">
-        <div class="tag">Sáng tạo</div>
-        <h3>Workshop thiết kế hàng tháng</h3>
-        <p>Đội ngũ cùng nhau brainstorm, học hỏi xu hướng mới và chia sẻ kỹ năng thiết kế.</p>
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div>
+      <div class="section-label reveal">Hoạt động</div>
+      <h2 class="section-title reveal">CUỘC SỐNG<br><span>TẠI AN.DESIGN</span></h2>
+    </div>
+  </div>
+  <!-- CAROUSEL -->
+  <div class="gallery-carousel reveal" style="position:relative; width:100%; overflow:hidden; border-radius:10px; background:var(--bg3);">
+    <div class="gc-track" style="display:flex; transition:transform 0.6s cubic-bezier(.77,0,.18,1);">
+      <!-- Slide 1 -->
+      <div class="gc-slide">
+        <img src="uploads/625538549_122139229616985097_3570238916489462020_n (1).jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🏆 Thưởng doanh thu</span>
+          <div class="gc-title">Nhận thưởng cuối năm tại văn phòng AN.DESIGN</div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="gc-slide">
+        <img src="uploads/574317624_122124266132985097_8528693033603847616_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🏆 Thưởng doanh thu</span>
+          <div class="gc-title">Những phong bì thưởng xứng đáng cho kết quả xuất sắc</div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="gc-slide">
+        <img src="uploads/611062108_122134915436985097_3819057844261636224_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🏆 Thưởng doanh thu</span>
+          <div class="gc-title">Mùa Giáng Sinh ấm áp cùng thưởng doanh thu cuối năm</div>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="gc-slide">
+        <img src="uploads/539359891_122105495552985097_2102962114634827864_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🏢 Văn phòng</span>
+          <div class="gc-title">Không gian làm việc AN.DESIGN — nơi sáng tạo không giới hạn</div>
+        </div>
+      </div>
+      <!-- Slide 5 -->
+      <div class="gc-slide">
+        <img src="uploads/538595954_122106278030985097_5408140826622780811_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🎉 Kỷ niệm</span>
+          <div class="gc-title">Cùng nhau chào mừng ngày lễ 30/4 tại văn phòng</div>
+        </div>
+      </div>
+      <!-- Slide 6 -->
+      <div class="gc-slide">
+        <img src="uploads/554864252_122115205814985097_1152872450083711689_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🌕 Trung Thu</span>
+          <div class="gc-title">Tết Trung Thu sum vầy cùng đội ngũ AN.DESIGN</div>
+        </div>
+      </div>
+      <!-- Slide 7 -->
+      <div class="gc-slide">
+        <img src="uploads/600401351_122131640336985097_8955296374748503472_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🎄 Giáng Sinh</span>
+          <div class="gc-title">Mùa Noel rực rỡ — team AN.DESIGN nhận quà Christmas</div>
+        </div>
+      </div>
+      <!-- Slide 8 -->
+      <div class="gc-slide">
+        <img src="uploads/639669463_122142642134985097_2952290553998952861_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🧧 Tết 2025</span>
+          <div class="gc-title">Lì xì đầu năm — chúc AN.DESIGN ngày càng phát triển!</div>
+        </div>
+      </div>
+      <!-- Slide 9 -->
+      <div class="gc-slide">
+        <img src="uploads/648788247_122144537936985097_624085202280072404_n.jpg" alt="">
+        <div class="gc-caption">
+          <span class="gc-tag">🌸 Women's Day</span>
+          <div class="gc-title">AN.DESIGN tri ân những cô gái tuyệt vời trong đội ngũ</div>
+        </div>
       </div>
     </div>
-    <div class="activity-card">
-      <div class="activity-img c2">🏆</div>
-      <div class="activity-body">
-        <div class="tag">Thành tích</div>
-        <h3>Kỷ lục doanh số mới</h3>
-        <p>Đội ngũ không ngừng phá vỡ giới hạn — từ những thiết kế đầu tiên đến hàng nghìn đơn hàng quốc tế.</p>
+
+    <!-- Prev / Next -->
+    <button class="gc-btn gc-prev" onclick="gcMove(-1)">&#8592;</button>
+    <button class="gc-btn gc-next" onclick="gcMove(1)">&#8594;</button>
+
+    <!-- Dots -->
+    <div class="gc-dots" id="gcDots"></div>
+  </div>
+
+  <style>
+    .gc-slide {
+      min-width: 100%; position: relative; flex-shrink: 0;
+    }
+    .gc-slide img {
+      width: 100%; height: auto; display: block; max-height: 90vh; object-fit: contain;
+    }
+    .gc-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 40px 48px 36px;
+      background: linear-gradient(to top, rgba(13,11,8,0.92) 0%, rgba(13,11,8,0.4) 60%, transparent 100%);
+    }
+    .gc-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--yellow);
+      background: rgba(232,160,32,0.15); border: 1px solid rgba(232,160,32,0.3);
+      padding: 4px 14px; border-radius: 2px; margin-bottom: 10px;
+    }
+    .gc-title {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 32px;
+      font-weight: 700; color: var(--white); line-height: 1.2;
+      text-wrap: pretty;
+    }
+    .gc-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(13,11,8,0.7); border: 1.5px solid rgba(232,160,32,0.3);
+      color: var(--yellow); font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s; backdrop-filter: blur(6px);
+    }
+    .gc-btn:hover { background: var(--yellow); color: #0D0B08; border-color: var(--yellow); }
+    .gc-prev { left: 20px; }
+    .gc-next { right: 20px; }
+    .gc-dots {
+      position: absolute; bottom: 16px; right: 48px;
+      display: flex; gap: 8px; align-items: center;
+    }
+    .gc-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(248,245,238,0.3); cursor: pointer; transition: all 0.25s;
+      border: none; padding: 0;
+    }
+    .gc-dot.active { background: var(--yellow); width: 20px; border-radius: 3px; }
+  </style>
+
+  <script>
+    const gcTotal = 9;
+    let gcCurrent = 0;
+    let gcTimer;
+
+    function gcRender() {
+      document.querySelector('.gc-track').style.transform = `translateX(-${gcCurrent * 100}%)`;
+      document.querySelectorAll('.gc-dot').forEach((d,i) => d.classList.toggle('active', i === gcCurrent));
+    }
+    function gcMove(dir) {
+      gcCurrent = (gcCurrent + dir + gcTotal) % gcTotal;
+      gcRender();
+      gcResetTimer();
+    }
+    function gcGoTo(i) { gcCurrent = i; gcRender(); gcResetTimer(); }
+    function gcResetTimer() {
+      clearInterval(gcTimer);
+      gcTimer = setInterval(() => gcMove(1), 4000);
+    }
+
+    // Build dots
+    const dotsEl = document.getElementById('gcDots');
+    for (let i = 0; i < gcTotal; i++) {
+      const d = document.createElement('button');
+      d.className = 'gc-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => gcGoTo(i);
+      dotsEl.appendChild(d);
+    }
+
+    gcResetTimer();
+  </script>
+
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-label reveal">Đội ngũ</div>
+  <h2 class="section-title reveal">NHỮNG NGƯỜI<br><span>TẠO NÊN AN.DESIGN</span></h2>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-photo">
+        <div class="team-initials">AN</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Nguyễn Minh An</div>
+        <div class="team-role">Founder & Creative Director</div>
       </div>
     </div>
-    <div class="activity-card">
-      <div class="activity-img c3">🤝</div>
-      <div class="activity-body">
-        <div class="tag">Team building</div>
-        <h3>Gắn kết đội ngũ</h3>
-        <p>Chúng tôi tin rằng môi trường vui vẻ tạo ra những sản phẩm xuất sắc nhất.</p>
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-photo">
+        <div class="team-initials">DT</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Trần Bảo Duy</div>
+        <div class="team-role">Lead Designer</div>
       </div>
     </div>
-    <div class="activity-card">
-      <div class="activity-img c4">📈</div>
-      <div class="activity-body">
-        <div class="tag">Phát triển</div>
-        <h3>Training & Upskill liên tục</h3>
-        <p>Cập nhật kỹ năng AI design, xu hướng POD mới nhất trên thị trường Mỹ và toàn cầu.</p>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-photo">
+        <div class="team-initials">LH</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Lê Thanh Hà</div>
+        <div class="team-role">Amazon Seller</div>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-3">
+      <div class="team-photo">
+        <div class="team-initials">NK</div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Ngô Thị Kim</div>
+        <div class="team-role">Market Researcher</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RECRUITMENT -->
-<section id="recruitment">
-  <span class="section-tag">Tuyển dụng</span>
-  <h2 class="section-title">Gia nhập đội ngũ ANDESIGN</h2>
-  <p class="section-sub">Bạn yêu thiết kế, thích kiếm tiền từ sáng tạo và muốn làm việc trong môi trường năng động? Đây là nơi dành cho bạn!</p>
+<!-- CAREERS -->
+<section id="careers">
+  <div class="section-label reveal">Tuyển dụng</div>
+  <h2 class="section-title reveal">GIA NHẬP<br><span>ĐỘI NGŨ</span></h2>
+  <p class="careers-intro reveal">
+    Chúng tôi đang tìm kiếm những tài năng sáng tạo và đam mê, sẵn sàng cùng AN.DESIGN chinh phục thị trường Amazon toàn cầu. Môi trường trẻ, năng động và không giới hạn sự phát triển.
+  </p>
   <div class="jobs-list">
-    <div class="job-card">
+    <!-- DESIGNER -->
+    <div class="job-card reveal" onclick="openModal('designer')">
       <div class="job-info">
-        <h3>Graphic Designer – Print on Demand</h3>
+        <div class="job-title">DESIGNER</div>
         <div class="job-tags">
-          <span class="job-tag type">Full-time</span>
-          <span class="job-tag loc">📍 Làm việc tại văn phòng / Remote</span>
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Sáng tạo</span>
+          <span class="job-tag">Amazon POD</span>
+          <span class="job-tag">Illustrator / Photoshop</span>
         </div>
       </div>
-      <a href="#contact" class="btn-apply">Ứng tuyển</a>
+      <button class="job-apply">Ứng tuyển</button>
     </div>
-    <div class="job-card">
+    <!-- SELLER -->
+    <div class="job-card reveal reveal-delay-1" onclick="openModal('seller')">
       <div class="job-info">
-        <h3>Amazon POD Researcher – Nghiên cứu thị trường</h3>
+        <div class="job-title">SELLER</div>
         <div class="job-tags">
-          <span class="job-tag type">Part-time / Full-time</span>
-          <span class="job-tag loc">📍 Remote</span>
+          <span class="job-tag">Full-time</span>
+          <span class="job-tag">Amazon</span>
+          <span class="job-tag">E-commerce</span>
+          <span class="job-tag">Data Analysis</span>
         </div>
       </div>
-      <a href="#contact" class="btn-apply">Ứng tuyển</a>
-    </div>
-    <div class="job-card">
-      <div class="job-info">
-        <h3>Content & SEO Listing Specialist</h3>
-        <div class="job-tags">
-          <span class="job-tag type">Full-time</span>
-          <span class="job-tag loc">📍 Remote / Hybrid</span>
-        </div>
-      </div>
-      <a href="#contact" class="btn-apply">Ứng tuyển</a>
-    </div>
-    <div class="job-card">
-      <div class="job-info">
-        <h3>AI Design Operator – Sử dụng công cụ AI trong thiết kế</h3>
-        <div class="job-tags">
-          <span class="job-tag type">Full-time</span>
-          <span class="job-tag loc">📍 Remote / Tại văn phòng</span>
-        </div>
-      </div>
-      <a href="#contact" class="btn-apply">Ứng tuyển</a>
+      <button class="job-apply">Ứng tuyển</button>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <span class="section-tag">Liên hệ</span>
-  <h2 class="section-title">Kết nối với ANDESIGN</h2>
-  <p class="section-sub">Bạn muốn hợp tác, ứng tuyển hay chỉ đơn giản là muốn hỏi về dịch vụ? Hãy liên hệ ngay với chúng tôi.</p>
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div class="contact-text">
-          <span>Địa chỉ</span>
-          <strong>Việt Nam</strong>
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="section-label">Liên hệ</div>
+      <h2 class="section-title">HÃY NÓI<br><span>CHUYỆN VỚI</span><br>CHÚNG TÔI</h2>
+      <p>Bạn muốn hợp tác, tuyển dụng hay chỉ đơn giản là muốn biết thêm về AN.DESIGN? Chúng tôi luôn sẵn sàng lắng nghe.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-detail">
+            <h4>Email</h4>
+            <p>hello@andesign.vn</p>
+          </div>
         </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div class="contact-text">
-          <span>Email</span>
-          <strong>contact@andesignvn.com</strong>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail">
+            <h4>Địa chỉ</h4>
+            <p>TP. Hồ Chí Minh, Việt Nam</p>
+          </div>
         </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div class="contact-text">
-          <span>Điện thoại / Zalo</span>
-          <strong>Cập nhật sớm</strong>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🌐</div>
-        <div class="contact-text">
-          <span>Website</span>
-          <strong>andesignvn.com</strong>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div class="contact-detail">
+            <h4>Fanpage</h4>
+            <p>facebook.com/andesign.vn</p>
+          </div>
         </div>
       </div>
     </div>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <input type="text"     placeholder="Họ và tên *"       required />
-      <input type="email"    placeholder="Email của bạn *"    required />
-      <input type="text"     placeholder="Tiêu đề / Chủ đề"  />
-      <textarea              placeholder="Nội dung tin nhắn *" required></textarea>
-      <button type="submit">Gửi tin nhắn →</button>
-    </form>
+    <div class="contact-form reveal reveal-delay-2">
+      <h3>GỬI TIN NHẮN</h3>
+      <div id="contactFormWrap">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Họ và tên</label>
+            <input type="text" id="cName" placeholder="Nguyễn Văn A">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="cEmail" placeholder="email@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Chủ đề</label>
+          <input type="text" id="cSubject" placeholder="Tôi muốn hợp tác...">
+        </div>
+        <div class="form-group">
+          <label>Tin nhắn</label>
+          <textarea id="cMessage" placeholder="Nội dung tin nhắn của bạn..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%; text-align:center; border:none; cursor:pointer;" onclick="submitContact()">
+          Gửi tin nhắn →
+        </button>
+      </div>
+      <div class="success-msg" id="contactSuccess">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="23" stroke="#E8A020" stroke-width="2"/>
+          <path d="M14 24l8 8 12-16" stroke="#E8A020" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>ĐÃ GỬI THÀNH CÔNG!</h3>
+        <p>Chúng tôi sẽ liên hệ lại trong vòng 24 giờ.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2024 Công ty TNHH ANDESIGN &nbsp;·&nbsp; <a href="mailto:contact@andesignvn.com">contact@andesignvn.com</a> &nbsp;·&nbsp; <a href="#">andesignvn.com</a></p>
-  <p style="margin-top:.4rem;">Thiết kế hình ảnh in ấn chuyên nghiệp cho thị trường quốc tế.</p>
+  <div class="footer-logo">
+    <img src="uploads/LOGO AN.DESIGN VANG.png" alt="AN.DESIGN">
+    <span>AN.DESIGN</span>
+  </div>
+  <p>© 2024 AN.DESIGN. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#about">Về chúng tôi</a>
+    <a href="#services">Dịch vụ</a>
+    <a href="#careers">Tuyển dụng</a>
+    <a href="#contact">Liên hệ</a>
+  </div>
 </footer>
 
+<!-- APPLY MODAL -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <h2 id="modalTitle">ỨNG TUYỂN DESIGNER</h2>
+    <p id="modalDesc">Điền thông tin của bạn và chúng tôi sẽ liên hệ sớm nhất có thể.</p>
+    <div id="applyFormWrap">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Họ và tên</label>
+          <input type="text" id="aName" placeholder="Nguyễn Văn A">
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại</label>
+          <input type="tel" id="aPhone" placeholder="0912 345 678">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="aEmail" placeholder="email@example.com">
+      </div>
+      <div class="form-group">
+        <label>Link portfolio / CV</label>
+        <input type="text" id="aPortfolio" placeholder="drive.google.com/...">
+      </div>
+      <div class="form-group">
+        <label>Giới thiệu bản thân</label>
+        <textarea id="aAbout" placeholder="Kinh nghiệm, kỹ năng, lý do muốn gia nhập AN.DESIGN..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal()">Đóng</button>
+        <button class="btn-submit" onclick="submitApply()">Gửi hồ sơ →</button>
+      </div>
+    </div>
+    <div class="success-msg" id="applySuccess">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="23" stroke="#E8A020" stroke-width="2"/>
+        <path d="M14 24l8 8 12-16" stroke="#E8A020" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>HỒ SƠ ĐÃ GỬI!</h3>
+      <p>Cảm ơn bạn đã ứng tuyển. Chúng tôi sẽ liên hệ sớm nhất có thể.</p>
+    </div>
+  </div>
+</div>
+
 <script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
-
-  // Close menu when clicking a link
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-  });
-
-  // Navbar background on scroll
+  // NAV scroll
+  const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    nav.style.boxShadow = window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,.1)' : 'none';
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   });
 
   // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
 
-  document.querySelectorAll('.service-card, .activity-card, .job-card, .about-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease';
-    observer.observe(el);
+  // Modal
+  let currentJob = '';
+  function openModal(job) {
+    currentJob = job;
+    document.getElementById('modalTitle').textContent =
+      job === 'designer' ? 'ỨNG TUYỂN DESIGNER' : 'ỨNG TUYỂN SELLER';
+    document.getElementById('modalDesc').textContent =
+      job === 'designer'
+        ? 'Bạn có đam mê thiết kế và muốn chinh phục thị trường Amazon? Hãy gửi hồ sơ cho chúng tôi!'
+        : 'Bạn hiểu về E-commerce và muốn tối ưu doanh thu trên các sàn Thương mại điện tử? Chúng tôi cần bạn!';
+    document.getElementById('applyModal').classList.add('open');
+    document.getElementById('applyFormWrap').style.display = '';
+    document.getElementById('applySuccess').style.display = 'none';
+  }
+  function closeModal() {
+    document.getElementById('applyModal').classList.remove('open');
+  }
+  document.getElementById('applyModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
   });
+  function submitApply() {
+    document.getElementById('applyFormWrap').style.display = 'none';
+    document.getElementById('applySuccess').style.display = 'block';
+    setTimeout(closeModal, 2800);
+  }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = '✓ Đã gửi! Chúng tôi sẽ phản hồi sớm.';
-    btn.style.background = '#22c55e';
-    setTimeout(() => { btn.textContent = 'Gửi tin nhắn →'; btn.style.background = ''; }, 4000);
+  // Contact form
+  function submitContact() {
+    document.getElementById('contactFormWrap').style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
   }
 </script>
 </body>
